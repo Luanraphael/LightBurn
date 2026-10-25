@@ -3,8 +3,7 @@ import type { ReactNode } from "react";
 import { Check, ChevronsDown, Gift, Minus, Plus, ShieldCheck, TriangleAlert } from "lucide-react";
 
 const IMG = "/assets";
-// TODO: trocar pelo link de checkout da Hotmart desta oferta quando for enviado.
-const CHECKOUT_URL = "#offer";
+const CHECKOUT_URL = "https://pay.hotmart.com/U108181718Y?checkoutMode=10";
 const display = "font-display";
 
 /* ------------------------------------------------------------------ */
@@ -14,7 +13,7 @@ const display = "font-display";
 const MAIN_PRODUCT = "100 Visual LightBurn Mind Maps";
 const MAIN_MOCKUP = { img: "main-100-mind-maps.png", w: 1306, h: 1204 };
 
-const HERO_BULLETS = ["Lifetime access", "Instant delivery to your email", "7-day money-back guarantee"];
+const HERO_BULLETS = ["Lifetime access", "Instant delivery to your email", "30-day money-back guarantee"];
 
 const INCLUDES_TOP = [
   "A complete library of 100 Visual LightBurn Mind Maps, organized by task, taking you from beginner to advanced.",
@@ -42,7 +41,7 @@ const INCLUDES_BOTTOM = [
 ];
 
 const TRUST_BADGES = [
-  { label: "7-Day Guarantee", icon: null },
+  { label: "30-Day Guarantee", icon: null },
   { label: "Instant Access", icon: "icone-acesso.png" },
   { label: "Dedicated Support", icon: "icone-suporte.png" },
   { label: "Satisfaction Guaranteed", icon: "icone-satisfacao.png" },
@@ -162,7 +161,7 @@ const FAQ: { q: string; a: ReactNode }[] = [
       <>
         Absolutely!
         <br />
-        You get an <strong>unconditional 7-day money-back guarantee</strong>.
+        You get an <strong>unconditional 30-day money-back guarantee</strong>.
         <br />
         Go through the material at your own pace, and if it&apos;s not what you expected for any reason, just ask for a
         full refund. No hassle and no questions asked.
@@ -622,9 +621,9 @@ export default function LightBurnPage() {
               <span className="clay-orb inline-flex h-[120px] w-[120px] items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 text-white">
                 <ShieldCheck className="h-16 w-16" strokeWidth={2.25} />
               </span>
-              <h2 className={`${display} text-3xl font-black tracking-tight sm:text-4xl`}>7-DAY MONEY-BACK GUARANTEE</h2>
+              <h2 className={`${display} text-3xl font-black tracking-tight sm:text-4xl`}>30-DAY MONEY-BACK GUARANTEE</h2>
               <p className="text-lg font-medium leading-relaxed text-white/95">
-                Buy with complete peace of mind. Once your order is confirmed, you have 7 days to go through the mind
+                Buy with complete peace of mind. Once your order is confirmed, you have 30 days to go through the mind
                 maps, explore every detail and, if you feel it&apos;s not what you expected, ask for a full refund with no
                 hassle.
               </p>
