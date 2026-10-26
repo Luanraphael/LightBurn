@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
+import ShowcaseSlider from "./showcase-slider";
 import { Check, ChevronsDown, Gift, Minus, Plus, ShieldCheck, TriangleAlert } from "lucide-react";
 
 const IMG = "/assets";
@@ -48,7 +49,7 @@ const TRUST_BADGES = [
   { label: "100% Secure Checkout", icon: "icone-compra-segura.png" },
 ];
 
-// Páginas horizontais reais dos mapas mentais, mostradas no carrossel "Take a look inside".
+// Páginas horizontais reais dos mapas mentais, mostradas nos slides "Take a look inside".
 const SHOWCASE = [
   { title: "Getting to Know the LightBurn Workspace", img: "page-01-workspace.png" },
   { title: "How to Navigate the Screen Without Getting Lost in the Project", img: "page-02-navigate.png" },
@@ -298,30 +299,6 @@ function MainMockup({ priority = false, className = "" }: { priority?: boolean; 
   );
 }
 
-/** Vitrine: as páginas horizontais passam sozinhas, em loop contínuo. */
-function Showcase({ className = "" }: { className?: string }) {
-  const loop = [...SHOWCASE, ...SHOWCASE];
-  return (
-    <div className={`vitrine w-full overflow-hidden py-4 ${className}`}>
-      <div className="vitrine-track">
-        {loop.map((p, i) => (
-          <div key={`${p.img}-${i}`} className="shrink-0 pr-4" aria-hidden={i >= SHOWCASE.length}>
-            <Image
-              src={`${IMG}/${p.img}`}
-              alt={i < SHOWCASE.length ? `Mind map: ${p.title}` : ""}
-              width={1491}
-              height={1055}
-              sizes="(min-width: 640px) 440px, 300px"
-              loading="eager"
-              className="w-[300px] rounded-[16px] bg-white shadow-[0_12px_28px_rgba(60,0,5,0.35)] sm:w-[440px]"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 /* ------------------------------------------------------------------ */
 /* Página                                                              */
 /* ------------------------------------------------------------------ */
@@ -407,15 +384,18 @@ export default function LightBurnPage() {
           </Container>
         </LightSection>
 
-        {/* 4 · Vitrine + O que vem + 5 · Data + 6 · Bônus */}
+        {/* 4 · Slides + O que vem + 5 · Data + 6 · Bônus */}
         <RedSlab id="inside">
           <Container>
             <SectionTitle onRed>
               Take a look <MarkOnRed>inside</MarkOnRed>
             </SectionTitle>
+            <p className="mt-3 text-center text-lg font-bold text-white/90">Swipe to see more pages →</p>
           </Container>
 
-          <Showcase className="mt-8" />
+          <div className="mx-auto mt-8 w-full max-w-[980px] px-1.5 sm:px-10">
+            <ShowcaseSlider slides={SHOWCASE} imgBase={IMG} />
+          </div>
 
           <Container className="mt-14">
             <SectionTitle onRed>

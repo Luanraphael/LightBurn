@@ -239,27 +239,39 @@ img {
 .animation-delay-2000 { animation-delay: 2s; }
 .animation-delay-4000 { animation-delay: 4s; }
 
-/* ---------- Carrossel vitrine (rola sozinho, para ao tocar/passar o mouse) ---------- */
+/* ---------- Slides "Take a look inside" (1 por vez, setas + arrasto) ---------- */
 
-@keyframes vitrine-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-.vitrine {
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
-  mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
-}
-.vitrine-track {
+.showcase-track {
   display: flex;
-  width: max-content;
-  animation: vitrine-scroll 40s linear infinite;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
 }
-.vitrine:hover .vitrine-track,
-.vitrine:active .vitrine-track {
-  animation-play-state: paused;
+.showcase-track::-webkit-scrollbar {
+  display: none;
 }
-@media (prefers-reduced-motion: reduce) {
-  .vitrine { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+.showcase-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  padding: 4px 10px 30px;
+}
+.showcase-arrow {
+  position: absolute;
+  top: calc(50% - 38px);
+  display: inline-flex;
+  height: 48px;
+  width: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #fce68c 0%, #f8d45c 50%, #f2bc4c 100%);
+  color: #a50309;
+  box-shadow: 0 6px 16px rgba(60, 0, 5, 0.35);
+  cursor: pointer;
+}
+.showcase-arrow:active {
+  transform: scale(0.94);
 }
 
 /* ---------- FAQ (details/summary nativo) ---------- */
